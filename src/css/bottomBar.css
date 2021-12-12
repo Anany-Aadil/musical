@@ -1,0 +1,115 @@
+/* The Bottom Bar + Audio Controls ---------------------------------- */
+
+.Bottom {
+    position: fixed;
+    width: 100%;
+    bottom: 0rem;
+    height: 6rem;
+    background-color: rgb(3, 17, 1);
+    color: rgb(235, 254, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#mainProgressBar {
+    width: 80vw;
+    transform: translateY(0.5rem);
+}
+
+.iconRow {
+    display: flex;
+    flex-direction: row;
+    padding-left: 7vw;
+}
+
+.icons {
+    margin: 0.5rem 0;
+    padding: 0rem 0.1rem;
+    display: flex;
+    color: rgb(255, 229, 189);
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.icons i {
+    cursor: pointer;
+    padding: 0rem 0.125rem;
+}
+
+.btns:hover {
+    color: rgb(139, 125, 165);
+}
+
+#vol {
+    transform: translateY(0.78rem);
+    padding-left: 0.25rem;
+    color: rgb(255, 209, 183);
+}
+
+#vol:hover {
+    color: rgb(139, 125, 165);
+    transform: translateY(0);
+}
+
+#volumeBar {
+    transform: scale(0);
+    opacity: 0;
+    position: relative;
+    margin-top: 0.5rem;
+    margin-left: 0.125rem;
+    width: 5rem;
+    display: flex;
+    align-items: center;
+}
+
+#vol:hover #volumeBar {
+    opacity: 1;
+    transform: scale(1);
+    transition: linear 200ms;
+    transform-origin: left;
+}
+
+i#loop {
+    margin-left: 6vw;
+}
+
+#checkMark {
+    transform: translateX(-2rem);
+    color: rgb(34, 231, 34);
+    z-index: -1;
+    opacity: 0;
+}
+
+#gif1 {
+    left: 10vw;
+}
+
+#gif2 {
+    right: 10vw;
+}
+
+.gifs {
+    position: absolute;
+    opacity: 0;
+    transition: opacity 0.7s ease;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.gifPlay {
+    padding-top: 0.25rem;
+    border-radius: 0.5rem;
+    width: 2rem;
+}
+
+span.sPname {
+    justify-content: center;
+    align-items: center;
+    font-family: 'Andada', Tahoma, Verdana, sans-serif;
+    padding: 0rem 0.25rem;
+}

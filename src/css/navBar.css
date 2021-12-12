@@ -1,0 +1,47 @@
+/* The Main Navigation Bar ------------------------------ */
+
+nav {
+    font-family: 'Noto Sans Mono', monospace;
+    font-weight: bold;
+    width: 100%;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    font-weight: bolder;
+    font-size: 1.3rem;
+}
+
+.brand img {
+    width: 3rem;
+    padding: 0 0.5rem;
+}
+
+.brand span {
+    font-family: 'Andada Pro', sans-serif;
+}
+
+nav ul {
+    display: flex;
+    list-style-type: none;
+    align-items: center;
+    height: 4rem;
+    background-color: rgb(34, 2, 2);
+    color: aliceblue;
+}
+
+nav ul li {
+    padding: 0 0.75rem;
+}
+
+.btn {
+    display: flex;
+    border-radius: 0;
+}
+
+.btn:hover {
+    border-radius: 1rem;
+    background-color: rgb(63, 17, 17);
+    cursor: pointer;
+}
