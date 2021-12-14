@@ -81,6 +81,7 @@ i#loop {
     color: rgb(34, 231, 34);
     z-index: -1;
     opacity: 0;
+    transition: 50ms;
 }
 
 #gif1 {

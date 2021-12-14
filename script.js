@@ -140,11 +140,11 @@ function nextSong() {
 function makePlay(e) {
     makeAllPlays();
     songIndex = parseInt(e.target.id);
-    manyThings();
     e.target.classList.remove('fa-play-circle');
     e.target.classList.add('fa-pause-circle');
     gif1.style.opacity = 1;
     gif2.style.opacity = 1;
+    manyThings();
 }
 
 function loopVid() {
@@ -154,6 +154,7 @@ function loopVid() {
         loopChk.style.opacity = '0';
     }
 }
+
 const manyThings = () => {
     audioElement.src = `public/songs/${songIndex + 1}.mp3`;
     mainSong1.innerText = songs[songIndex].songName;
