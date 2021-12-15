@@ -31,7 +31,7 @@ let songs = [{
         coverPath: `${songCoverPath}believer-tp.jpg`
     },
     {
-        songName: "Dream - Road Trip Remix",
+        songName: "Dream - Road Trip (Remix)",
         filePath: `${songPath}3.mp3`,
         coverPath: `${songCoverPath}dreamroadtrip.jpg`
     },
@@ -98,15 +98,12 @@ mainProgressBar.addEventListener('change', () => {
     audioElement.currentTime = mainProgressBar.value * audioElement.duration / 1000;
 });
 
-
+// ========================All Functions======================||>
 
 function playBtn() {
     if (audioElement.paused || audioElement.currentTime <= 0) {
         audioElement.play();
-        mainPlay.classList.remove('fa-play-circle');
-        mainPlay.classList.add('fa-pause-circle');
-        gif1.style.opacity = 1;
-        gif2.style.opacity = 1;
+        songPlayText();
 
     } else {
         audioElement.pause();
@@ -166,14 +163,9 @@ function loopVid() {
 
 const manyThings = () => {
     audioElement.src = `${songPath}${songIndex + 1}.mp3`;
-    mainSong1.innerText = songs[songIndex].songName;
-    mainSong2.innerText = songs[songIndex].songName;
     audioElement.currentTime = 0;
     audioElement.play();
-    gif1.style.opacity = 1;
-    gif2.style.opacity = 1;
-    mainPlay.classList.remove('fa-play-circle');
-    mainPlay.classList.add('fa-pause-circle');
+    songPlayText();
 }
 
 const makeAllPlays = () => {
@@ -184,3 +176,12 @@ const makeAllPlays = () => {
         gif2.style.opacity = 0;
     });
 };
+
+const songPlayText = () => {
+    mainSong1.innerText = songs[songIndex].songName;
+    mainSong2.innerText = songs[songIndex].songName;
+    gif1.style.opacity = 1;
+    gif2.style.opacity = 1;
+    mainPlay.classList.remove('fa-play-circle');
+    mainPlay.classList.add('fa-pause-circle');
+}
