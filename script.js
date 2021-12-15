@@ -1,4 +1,5 @@
 console.log("This is Musical")
+
 let songIndex = 0;
 let audioElement = new Audio('public/songs/1.mp3');
 let mainPlay = document.getElementById('mainPlay');
@@ -16,53 +17,61 @@ let volBtn = document.getElementById('vol');
 let loopBtn = document.getElementById('loop');
 let loopChk = document.getElementById('checkMark');
 
+let songPath = 'public/songs/';
+let songCoverPath = 'public/covers/';
+
 let songs = [{
         songName: "Believer - Imagine Dragons",
-        filePath: 'public/songs/1.mp3',
-        coverPath: "public/covers/believer.jpg"
+        filePath: `${songPath}1.mp3`,
+        coverPath: `${songCoverPath}believer.jpg`,
     },
     {
         songName: "Believer - Cover By Tommee Profitt",
-        filePath: "public/songs/2.mp3",
-        coverPath: "public/covers/believer-tp.jpg"
+        filePath: `${songPath}2.mp3`,
+        coverPath: `${songCoverPath}believer-tp.jpg`
     },
     {
         songName: "Dream - Road Trip Remix",
-        filePath: "public/songs/3.mp3",
-        coverPath: "public/covers/dreamroadtrip.jpg"
+        filePath: `${songPath}3.mp3`,
+        coverPath: `${songCoverPath}dreamroadtrip.jpg`
     },
     {
         songName: "Unstoppable - TheScore",
-        filePath: "public/songs/4.mp3",
-        coverPath: "public/covers/unstoppable.jpg"
+        filePath: `${songPath}4.mp3`,
+        coverPath: `${songCoverPath}unstoppable.jpg`
     },
     {
         songName: "Stronger - TheScore",
-        filePath: "public/songs/5.mp3",
-        coverPath: "public/covers/stronger.jpg"
+        filePath: `${songPath}5.mp3`,
+        coverPath: `${songCoverPath}stronger.jpg`
     },
     {
         songName: "SpiderMan - Sam Raimi Theme",
-        filePath: "public/songs/6.mp3",
-        coverPath: "public/covers/spider-man.jpg"
+        filePath: `${songPath}6.mp3`,
+        coverPath: `${songCoverPath}spider-man.jpg`
     },
     {
         songName: "Warriors - Imagine Dragons",
-        filePath: "public/songs/7.mp3",
-        coverPath: "public/covers/warriors2016.jpg"
+        filePath: `${songPath}7.mp3`,
+        coverPath: `${songCoverPath}warriors2016.jpg`
     },
     {
         songName: "Warriors - 2WEI Cover",
-        filePath: "public/songs/8.mp3",
-        coverPath: "public/covers/warriors2wei.jpg"
+        filePath: `${songPath}8.mp3`,
+        coverPath: `${songCoverPath}warriors2wei.jpg`
     },
 ];
 
 mainPlay.addEventListener('click', playBtn);
+
 nextBtn.addEventListener('click', nextSong);
+
 previousBtn.addEventListener('click', previousSong);
+
 volBar.addEventListener('change', volChange);
-loopBtn.addEventListener('click', loopVid)
+
+loopBtn.addEventListener('click', loopVid);
+
 songItemPlaying.forEach((element) => {
     element.addEventListener('click', makePlay);
 });
@@ -156,7 +165,7 @@ function loopVid() {
 }
 
 const manyThings = () => {
-    audioElement.src = `public/songs/${songIndex + 1}.mp3`;
+    audioElement.src = `${songPath}${songIndex + 1}.mp3`;
     mainSong1.innerText = songs[songIndex].songName;
     mainSong2.innerText = songs[songIndex].songName;
     audioElement.currentTime = 0;
