@@ -1,64 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Ephesis&family=Fira+Sans:wght@100;200;300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Andada+Pro&family=Noto+Sans+Mono:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Recursive:wght@300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Fira+Sans:wght@100;200;300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Andada+Pro&family=Noto+Sans+Mono:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Recursive:wght@300&display=swap");
 * {
-    margin: 0rem;
-    padding: 0rem;
-    transition: all;
-    transition-duration: 150ms;
-    transition-timing-function: linear;
+  margin: 0rem;
+  padding: 0rem;
+  transition: all;
+  transition-duration: 150ms;
+  transition-timing-function: linear;
 }
 
 body {
-    background: linear-gradient(rgba(193, 193, 240, 0.95), rgba(200, 209, 236, 0.95)), url('../../public/assets/play.gif');
+  background: linear-gradient(
+      rgba(193, 193, 240, 0.95),
+      rgba(200, 209, 236, 0.95)
+    ),
+    url("../../public/assets/play.gif");
 }
 
 a {
-    text-decoration: none;
-    color: aliceblue;
+  text-decoration: none;
+  color: aliceblue;
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-@media (min-width:1250px) {
-    .container {
-        background-size: 100%;
-    }
+@media (min-width: 1250px) {
+  .container {
+    background-size: 100%;
+  }
 }
 
-@media (max-width:1200px) {
-    #gif2 .sPname {
-        transform: scale(0);
-    }
+@media (max-width: 1200px) {
+  #gif2 .sPname {
+    transform: scale(0);
+  }
 }
 
-@media (max-width:900px) {
-    span.sPname {
-        transform: scale(0);
-    }
+@media (max-width: 900px) {
+  span.sPname {
+    transform: scale(0);
+  }
 }
 
-@media (max-width:650px) {
-    div.container {
-        background-image: url('../../public/assets/bg2.jpg');
-    }
+@media (max-width: 650px) {
+  div.container {
+    background-image: url("../../public/assets/bg2.jpg");
+  }
 }
 
-@media (max-width:600px) {
-    .songItem .jSName,
-    .timeStamp {
-        font-family: 'Dancing Script', cursive;
-        font-size: 0.8rem;
-    }
+@media (max-width: 600px) {
+  .songItem .jSName,
+  .timeStamp {
+    font-family: "Dancing Script", cursive;
+    font-size: 0.8rem;
+  }
 }
 
-@media (max-width:385px) {
-    #loop {
-        margin-left: 10px;
-    }
-    .iconRow {
-        padding-left: 3rem;
-    }
+@media (max-width: 385px) {
+  #loop {
+    margin-left: 10px;
+  }
+  .iconRow {
+    padding-left: 3rem;
+  }
+}
+@media (max-width: 500px) {
+  .gifs {
+    transform: scale(0);
+  }
 }
