@@ -22,21 +22,21 @@
 }
 
 .songItem {
-    height: 2.5rem;
+    height: 6vh;
     display: flex;
     background-color: rgb(255, 221, 189);
     color: rgb(14, 16, 121);
     justify-content: space-between;
     align-items: center;
-    font-size: 1rem;
-    border-radius: 1rem;
+    font-size: 2vh;
+    border-radius: 1.2rem;
     margin: 0.5rem 0;
     font-family: 'Ephesis', cursive;
     font-weight: bolder;
 }
 
 .songItem img {
-    width: 3.5rem;
+    width: 8vh;
     border-radius: 1rem;
     margin: 0px 0.25rem;
 }
@@ -46,7 +46,7 @@
 }
 
 .jSName {
-    font-size: 1.2rem;
+    font-size: 3vh;
 }
 
 .timeStamp {
