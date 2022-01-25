@@ -1,94 +1,95 @@
-console.log("This is Musical");
-var songIndex = 0;
-var mainPlay = document.getElementById("mainPlay");
-var previousBtn = document.getElementById("previous");
-var nextBtn = document.getElementById("next");
-var mainProgressBar = document.getElementById("mainProgressBar");
-var gif1 = document.getElementById("gif1");
-var gif2 = document.getElementById("gif2");
-var songItemPlaying = Array.from(
-  document.getElementsByClassName("songItemPlay")
-);
-var songItemName = Array.from(document.getElementsByClassName("songItem"));
-var mainSong1 = document.getElementById("mainSongPlaying1");
-var mainSong2 = document.getElementById("mainSongPlaying2");
-var volBar = document.getElementById("volumeBar");
-var volBtn = document.getElementById("vol");
-var loopBtn = document.getElementById("loop");
-var loopChk = document.getElementById("checkMark");
-var songPath = "public/songs/";
-var songCoverPath = "public/covers/";
-var songs = [
+// ||================== All Varibles Initialized =================||
+let songIndex = 0;
+let progress;
+let mainPlay = document.getElementById("mainPlay");
+let previousBtn = document.getElementById("previous");
+let nextBtn = document.getElementById("next");
+let mainProgressBar = document.getElementById("mainProgressBar");
+let gif1 = document.getElementById("gif1");
+let gif2 = document.getElementById("gif2");
+let songItemPlaying = Array.from(document.getElementsByClassName("songItemPlay"));
+let songItemName = Array.from(document.getElementsByClassName("songItem"));
+let mainSong1 = document.getElementById("mainSongPlaying1");
+let mainSong2 = document.getElementById("mainSongPlaying2");
+let volBar = document.getElementById("volumeBar");
+let volBtn = document.getElementById("vol");
+let loopBtn = document.getElementById("loop");
+let loopChk = document.getElementById("checkMark");
+
+let audioElement = new Audio(songs[songIndex].filePath); // The Main Audio Element
+
+// <||====================== Array Of the Songs and Images ===========================||>
+let songPath = "public/songs/";
+let songCoverPath = "public/covers/";
+const songs = [
   {
     songName: "Believer - Imagine Dragons",
-    filePath: "".concat(songPath, "1.mp3"),
-    coverPath: "".concat(songCoverPath, "believer.jpg"),
+    filePath: `${songPath}1.mp3`,
+    coverPath: `${songCoverPath}believer.jpg`,
   },
   {
     songName: "Believer - Cover By Tommee Profitt",
-    filePath: "".concat(songPath, "2.mp3"),
-    coverPath: "".concat(songCoverPath, "believer-tp.jpg"),
+    filePath: `${songPath}2.mp3`,
+    coverPath: `${songCoverPath}believer-tp.jpg`,
   },
   {
     songName: "Dream - Road Trip (Remix)",
-    filePath: "".concat(songPath, "3.mp3"),
-    coverPath: "".concat(songCoverPath, "dreamroadtrip.jpg"),
+    filePath: `${songPath}3.mp3`,
+    coverPath: `${songCoverPath}dreamroadtrip.jpg`,
   },
   {
     songName: "Unstoppable - TheScore",
-    filePath: "".concat(songPath, "4.mp3"),
-    coverPath: "".concat(songCoverPath, "unstoppable.jpg"),
+    filePath: `${songPath}4.mp3`,
+    coverPath: `${songCoverPath}unstoppable.jpg`,
   },
   {
     songName: "Stronger - TheScore",
-    filePath: "".concat(songPath, "5.mp3"),
-    coverPath: "".concat(songCoverPath, "stronger.jpg"),
+    filePath: `${songPath}5.mp3`,
+    coverPath: `${songCoverPath}stronger.jpg`,
   },
   {
     songName: "SpiderMan - Sam Raimi Theme",
-    filePath: "".concat(songPath, "6.mp3"),
-    coverPath: "".concat(songCoverPath, "spider-man.jpg"),
+    filePath: `${songPath}6.mp3`,
+    coverPath: `${songCoverPath}spider-man.jpg`,
   },
   {
     songName: "Warriors - Imagine Dragons",
-    filePath: "".concat(songPath, "7.mp3"),
-    coverPath: "".concat(songCoverPath, "warriors2016.jpg"),
+    filePath: `${songPath}7.mp3`,
+    coverPath: `${songCoverPath}warriors2016.jpg`,
   },
   {
     songName: "Warriors - 2WEI Cover",
-    filePath: "".concat(songPath, "8.mp3"),
-    coverPath: "".concat(songCoverPath, "warriors2wei.jpg"),
+    filePath: `${songPath}8.mp3`,
+    coverPath: `${songCoverPath}warriors2wei.jpg`,
   },
 ];
-var audioElement = new Audio(songs[songIndex].filePath);
+
+// ================ The Event Listeners ================||>
+
 mainPlay.addEventListener("click", playBtn);
 nextBtn.addEventListener("click", nextSong);
 previousBtn.addEventListener("click", previousSong);
 volBar.addEventListener("change", volChange);
 loopBtn.addEventListener("click", loopVid);
-songItemPlaying.forEach(function (element) {
-  element.addEventListener("click", makePlay);
-});
-songItemName.forEach(function (element, i) {
-  element.getElementsByTagName("img")[0].src = songs[i].coverPath;
-  element.getElementsByClassName("jSName")[0].innerHTML = songs[i].songName;
-});
 audioElement.addEventListener("timeupdate", function () {
-  var progress = (audioElement.currentTime / audioElement.duration) * 1000;
+  progress = (audioElement.currentTime / audioElement.duration) * 1000;
   mainProgressBar.value = progress;
-  if (mainProgressBar.value == "1000" && loopChk.style.opacity == "1") {
-    mainProgressBar.value = "0";
+  if (mainProgressBar.value == 1000 && loopChk.style.opacity == 1) {
+    mainProgressBar.value = 0;
     playBtn();
-  } else if (mainProgressBar.value == "1000") {
-    nextSong();
-  }
+  } else if (mainProgressBar.value == 1000) nextSong()
 });
 mainProgressBar.addEventListener("change", function () {
   audioElement.currentTime =
-    (mainProgressBar.value * audioElement.duration) / 1000;
+  (mainProgressBar.value * audioElement.duration) / 1000;
+});
+songItemPlaying.forEach((element) => element.addEventListener("click", makePlay));
+songItemName.forEach((element, i) => {
+  element.getElementsByTagName("img")[0].src = songs[i].coverPath;
+  element.getElementsByClassName("jSName")[0].innerHTML = songs[i].songName;
 });
 // ========================All Functions======================||>
-function playBtn() {
+playBtn = () => {
   if (audioElement.paused || audioElement.currentTime <= 0) {
     audioElement.play();
     songPlayText();
@@ -96,11 +97,11 @@ function playBtn() {
     audioElement.pause();
     mainPlay.classList.remove("fa-pause-circle");
     mainPlay.classList.add("fa-play-circle");
-    gif1.style.opacity = "0";
-    gif2.style.opacity = "0";
+    gif1.style.opacity = 0;
+    gif2.style.opacity = 0;
   }
 }
-function volChange() {
+const volChange = () => {
   audioElement.volume = volBar.value / 100;
   if (volBar.value < 50) {
     volBtn.classList.remove("fa-volume-up");
@@ -110,7 +111,7 @@ function volChange() {
     volBtn.classList.add("fa-volume-up");
   }
 }
-function previousSong() {
+const previousSong = () => {
   if (songIndex <= 0) {
     songIndex = 7;
   } else {
@@ -118,7 +119,7 @@ function previousSong() {
   }
   manyThings();
 }
-function nextSong() {
+const nextSong = () => {
   if (songIndex >= 7) {
     songIndex = 0;
   } else {
@@ -126,41 +127,42 @@ function nextSong() {
   }
   manyThings();
 }
-function makePlay(e) {
+const makePlay = (e) => {
   makeAllPlays();
   songIndex = parseInt(e.target.id);
   e.target.classList.remove("fa-play-circle");
   e.target.classList.add("fa-pause-circle");
-  gif1.style.opacity = "1";
-  gif2.style.opacity = "1";
+  gif1.style.opacity = 1;
+  gif2.style.opacity = 1;
   manyThings();
 }
-function loopVid() {
-  if (loopChk.style.opacity == "0") {
-    loopChk.style.opacity = "1";
+const loopVid = () => {
+  if (loopChk.style.opacity == 0) {
+    loopChk.style.opacity = 1;
   } else {
-    loopChk.style.opacity = "0";
+    loopChk.style.opacity = 0;
   }
 }
-var manyThings = function () {
-  audioElement.src = "".concat(songPath).concat(songIndex + 1, ".mp3");
+// Methods --------------------------------------------
+const manyThings = () => {
+  audioElement.src = `${songPath}${songIndex + 1}.mp3`;
   audioElement.currentTime = 0;
   audioElement.play();
   songPlayText();
 };
-var makeAllPlays = function () {
-  songItemPlaying.forEach(function (element) {
+const makeAllPlays = () => {
+  songItemPlaying.forEach((element) => {
     element.classList.remove("fa-pause-circle");
     element.classList.add("fa-play-circle");
-    gif1.style.opacity = "0";
-    gif2.style.opacity = "0";
+    gif1.style.opacity = 0;
+    gif2.style.opacity = 0;
   });
 };
-var songPlayText = function () {
+const songPlayText = () => {
   mainSong1.innerText = songs[songIndex].songName;
   mainSong2.innerText = songs[songIndex].songName;
-  gif1.style.opacity = "1";
-  gif2.style.opacity = "1";
+  gif1.style.opacity = 1;
+  gif2.style.opacity = 1;
   mainPlay.classList.remove("fa-play-circle");
   mainPlay.classList.add("fa-pause-circle");
 };

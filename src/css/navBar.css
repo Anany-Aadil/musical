@@ -29,11 +29,13 @@ nav ul {
     height: 4rem;
     background-color: rgb(34, 2, 2);
     color: aliceblue;
+    justify-content: center;
 }
-
+/*
 nav ul li {
     padding: 0 0.75rem;
-}
+    margin: 0 1rem;
+}*/
 
 .btn {
     display: flex;

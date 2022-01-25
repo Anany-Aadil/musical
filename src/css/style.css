@@ -1,11 +1,14 @@
-@import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Fira+Sans:wght@100;200;300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Andada+Pro&family=Noto+Sans+Mono:wght@300&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Dancing+Script&family=Recursive:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Andada+Pro&family=Dancing+Script&family=Ephesis&family=Fira+Sans:wght@300&family=Noto+Sans+Mono:wght@300&family=Recursive:wght@300&display=swap");
+
+:root {
+  font-size: 16px;
+}
+
 * {
   margin: 0rem;
   padding: 0rem;
   transition: all;
-  transition-duration: 150ms;
+  transition-duration: 250ms;
   transition-timing-function: linear;
 }
 
@@ -22,13 +25,12 @@ a {
   color: aliceblue;
 }
 
-.pointer {
-  cursor: pointer;
-}
-
 @media (min-width: 1250px) {
   .container {
     background-size: 100%;
+  }
+  nav ul {
+    justify-content: flex-start;
   }
 }
 
@@ -56,6 +58,9 @@ a {
     font-family: "Dancing Script", cursive;
     font-size: 0.8rem;
   }
+  nav ul {
+    justify-content: space-around;
+  }
 }
 
 @media (max-width: 385px) {
@@ -65,9 +70,19 @@ a {
   .iconRow {
     padding-left: 3rem;
   }
+  nav ul li {
+    padding: 0 4px;
+    margin: 0 2px;
+  }
 }
 @media (max-width: 500px) {
   .gifs {
     transform: scale(0);
+  }
+}
+@media (min-width: 386px) {
+  nav ul li {
+    padding: 0 12px;
+    margin: 0 16px;
   }
 }
