@@ -16,8 +16,6 @@ let volBtn = document.getElementById("vol");
 let loopBtn = document.getElementById("loop");
 let loopChk = document.getElementById("checkMark");
 
-let audioElement = new Audio(songs[songIndex].filePath); // The Main Audio Element
-
 // <||====================== Array Of the Songs and Images ===========================||>
 let songPath = "public/songs/";
 let songCoverPath = "public/covers/";
@@ -48,9 +46,9 @@ const songs = [
     coverPath: `${songCoverPath}stronger.jpg`,
   },
   {
-    songName: "SpiderMan - Sam Raimi Theme",
+    songName: "The Spidy-Verse Theme",
     filePath: `${songPath}6.mp3`,
-    coverPath: `${songCoverPath}spider-man.jpg`,
+    coverPath: `${songCoverPath}spider-verse.jpg`,
   },
   {
     songName: "Warriors - Imagine Dragons",
@@ -63,6 +61,8 @@ const songs = [
     coverPath: `${songCoverPath}warriors2wei.jpg`,
   },
 ];
+
+let audioElement = new Audio(songs[songIndex].filePath); // The Main Audio Element
 
 // ================ The Event Listeners ================||>
 
@@ -79,17 +79,20 @@ audioElement.addEventListener("timeupdate", function () {
     playBtn();
   } else if (mainProgressBar.value == 1000) nextSong()
 });
+
 mainProgressBar.addEventListener("change", function () {
   audioElement.currentTime =
   (mainProgressBar.value * audioElement.duration) / 1000;
 });
+
 songItemPlaying.forEach((element) => element.addEventListener("click", makePlay));
+
 songItemName.forEach((element, i) => {
   element.getElementsByTagName("img")[0].src = songs[i].coverPath;
   element.getElementsByClassName("jSName")[0].innerHTML = songs[i].songName;
 });
 // ========================All Functions======================||>
-playBtn = () => {
+function playBtn () {
   if (audioElement.paused || audioElement.currentTime <= 0) {
     audioElement.play();
     songPlayText();
@@ -101,7 +104,7 @@ playBtn = () => {
     gif2.style.opacity = 0;
   }
 }
-const volChange = () => {
+function volChange () {
   audioElement.volume = volBar.value / 100;
   if (volBar.value < 50) {
     volBtn.classList.remove("fa-volume-up");
@@ -111,7 +114,7 @@ const volChange = () => {
     volBtn.classList.add("fa-volume-up");
   }
 }
-const previousSong = () => {
+function previousSong () {
   if (songIndex <= 0) {
     songIndex = 7;
   } else {
@@ -119,7 +122,7 @@ const previousSong = () => {
   }
   manyThings();
 }
-const nextSong = () => {
+function nextSong () {
   if (songIndex >= 7) {
     songIndex = 0;
   } else {
@@ -127,16 +130,16 @@ const nextSong = () => {
   }
   manyThings();
 }
-const makePlay = (e) => {
-  makeAllPlays();
+function makePlay (e) {
   songIndex = parseInt(e.target.id);
   e.target.classList.remove("fa-play-circle");
   e.target.classList.add("fa-pause-circle");
   gif1.style.opacity = 1;
   gif2.style.opacity = 1;
+  makeAllPlays();
   manyThings();
 }
-const loopVid = () => {
+function loopVid () {
   if (loopChk.style.opacity == 0) {
     loopChk.style.opacity = 1;
   } else {
