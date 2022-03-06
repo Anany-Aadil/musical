@@ -1,0 +1,21 @@
+{
+  "name": "musical",
+  "version": "1.5.0",
+  "description": "A Music Website",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anany-Aadil/musical.git"
+  },
+  "keywords": [
+    "Cool",
+    "Music",
+    "Spotify",
+    "Website"
+  ],
+  "author": "Anany Aadil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Anany-Aadil/musical/issues"
+  },
+  "homepage": "https://github.com/Anany-Aadil/musical#readme"
+}

@@ -10,106 +10,115 @@
       content="This is a Music Website As a Clone Project for Spotify. Have Fun"
     />
     <meta name="keywords" content="Musical, Spotify, 'Super NeX'," />
+    <meta author="Anany Aadil" />
+
     <!-- CSS =================================================|> -->
     <link rel="stylesheet" type="text/css" href="src/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="src/css/navBar.css" />
-    <link rel="stylesheet" type="text/css" href="src/css/mainBody.css" />
-    <link rel="stylesheet" type="text/css" href="src/css/bottomBar.css" />
-    <!-- Other Links ========================================== -->
+
+    <!-- Font Awesome -->
+    <script
+      src="https://kit.fontawesome.com/1c228a77f8.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Other Links ==========================================|> -->
     <link rel="icon" href="public/assets/favicon.ico" type="image/x-icon" />
     <link rel="home" href="" />
-    <title> ♥ Musical - A Music Website ♥ </title>
+    <title>♥ Musical - A Music Website ♥</title>
   </head>
 
   <body>
     <nav>
-      <ul>
-        <li href="/" class="brand">
-          <img
-            src="public/assets/logo.png"
-            alt="Musical"
-            title="Music Player"
-          />
-          <span> Musical </span>
-        </li>
-        <li class="btn">
+      <ul class="nav-list">
+        <a href="/">
+          <li class="nav-items brand">
+            <img
+              src="public/assets/logo.png"
+              alt="Musical"
+              title="Music Player"
+            />
+            <span> Musical </span>
+          </li>
+        </a>
+        <li class="nav-items btn">
           <a href="https://anany-aadil.github.io/musical/" target="_blank">
             HOME
           </a>
         </li>
-        <li class="btn">
+        <li class="nav-items btn">
           <a href="https://github.com/Anany-Aadil/musical" target="_blank">
-            ABOUT
+            SOURCE
           </a>
         </li>
       </ul>
+      <div id="dark-switch"><span id="flicker"></span></div>
     </nav>
     <div class="container">
       <div class="songsList">
         <h1>Songs List</h1>
         <div class="songContainer">
           <div class="songItem">
-            <img class="img" />
+            <img class="img" alt="song-img" src="" />
             <span class="jSName"></span>
-            <span class="timeStamp"
-              >3:36
-              <i id="0" class="far songItemPlay fa-play-circle"></i>
+            <span class="timeStamp">
+              <span class="duration"></span>
+              <i id="0" class="fa-regular fa-circle-play songItemPlay"></i>
             </span>
           </div>
           <div class="songItem">
-            <img class="img" />
+            <img class="img" alt="song-img" src="" />
             <span class="jSName"></span>
-            <span class="timeStamp"
-              >4:35
-              <i id="1" class="far songItemPlay fa-play-circle"></i>
+            <span class="timeStamp">
+              <span class="duration"></span>
+              <i id="1" class="fa-regular fa-circle-play songItemPlay"></i>
             </span>
           </div>
           <div class="songItem">
-            <img class="img" />
+            <img class="img" alt="song-img" src="" />
             <span class="jSName"></span>
-            <span class="timeStamp"
-              >3:07
-              <i id="2" class="far songItemPlay fa-play-circle"></i>
+            <span class="timeStamp">
+              <span class="duration"></span>
+              <i id="2" class="fa-regular fa-circle-play songItemPlay"></i>
             </span>
           </div>
           <div class="songItem">
-            <img class="img" />
+            <img class="img" alt="song-img" src="" />
             <span class="jSName"></span>
-            <span class="timeStamp"
-              >3:10
-              <i id="3" class="far songItemPlay fa-play-circle"></i>
+            <span class="timeStamp">
+              <span class="duration"></span>
+              <i id="3" class="fa-regular fa-circle-play songItemPlay"></i>
             </span>
           </div>
           <div class="songItem">
-            <img class="img" />
+            <img class="img" alt="song-img" src="" />
             <span class="jSName"></span>
-            <span class="timeStamp"
-              >3:19
-              <i id="4" class="far songItemPlay fa-play-circle"></i>
+            <span class="timeStamp">
+              <span class="duration"></span>
+              <i id="4" class="fa-regular fa-circle-play songItemPlay"></i>
             </span>
           </div>
           <div class="songItem">
-            <img class="img" />
+            <img class="img" alt="song-img" src="" />
             <span class="jSName"></span>
-            <span class="timeStamp"
-              >5:16
-              <i id="5" class="far songItemPlay fa-play-circle"></i>
+            <span class="timeStamp">
+              <span class="duration"></span>
+              <i id="5" class="fa-regular fa-circle-play songItemPlay"></i>
             </span>
           </div>
           <div class="songItem">
-            <img class="img" />
+            <img class="img" alt="song-img" src="" />
             <span class="jSName"></span>
-            <span class="timeStamp"
-              >2:50
-              <i id="6" class="far songItemPlay fa-play-circle"></i>
+            <span class="timeStamp">
+              <span class="duration"></span>
+              <i id="6" class="fa-regular fa-circle-play songItemPlay"></i>
             </span>
           </div>
           <div class="songItem">
-            <img class="img" />
+            <img class="img" alt="song-img" src="" />
             <span class="jSName"></span>
-            <span class="timeStamp"
-              >3:21
-              <i id="7" class="far songItemPlay fa-play-circle"></i>
+            <span class="timeStamp">
+              <span class="duration"></span>
+              <i id="7" class="fa-regular fa-circle-play songItemPlay"></i>
             </span>
           </div>
         </div>
@@ -127,16 +136,16 @@
       <div class="iconRow">
         <div class="iconRow">
           <div class="cent icons">
-            <i class="btns fas fa-2x fa-backward" id="previous"></i>
+            <i class="btns fa-solid fa-2x fa-backward" id="previous"></i>
           </div>
           <div class="cent icons">
-            <i class="btns far fa-2x fa-play-circle" id="mainPlay"></i>
+            <i class="btns fa-regular fa-2x fa-circle-play" id="mainPlay"></i>
           </div>
           <div class="cent icons">
-            <i class="btns fas fa-2x fa-forward" id="next"></i>
+            <i class="btns fa-solid fa-2x fa-forward" id="next"></i>
           </div>
           <span class="icons">
-            <i id="vol" class="btns fas fa-2x fa-volume-up">
+            <i id="vol" class="btns fa-solid fa-2x fa-volume-up">
               <input
                 type="range"
                 name="volume"
@@ -148,8 +157,8 @@
             </i>
           </span>
           <span class="icons">
-            <i id="loop" class="btns fas fa-2x fa-retweet"></i>
-            <i id="checkMark" class="fas fa-check"></i>
+            <i id="loop" class="btns fa-solid fa-2x fa-retweet"></i>
+            <i id="checkMark" class="fa-solid fa-check"></i>
           </span>
         </div>
       </div>
@@ -162,10 +171,6 @@
         <img class="gifPlay" src="public/assets/play.gif" />
       </div>
       <script src="script.js"></script>
-      <script
-        src="https://kit.fontawesome.com/b00be7ec8d.js"
-        crossorigin="anonymous"
-      ></script>
     </div>
   </body>
 </html>
