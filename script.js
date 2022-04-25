@@ -1,6 +1,5 @@
-// ||================== All Varibles Initialized =================||
+// ||================== All Variables Initialized =================||
 let songIndex = 0;
-let progress;
 const mainPlay = document.getElementById("mainPlay");
 const previousBtn = document.getElementById("previous");
 const nextBtn = document.getElementById("next");
@@ -113,7 +112,7 @@ songItemName.forEach((element, i) => {
 // ========================All Functions======================||>
 function playBtn() {
   if (audioElement.paused || audioElement.currentTime <= 0) {
-    audioElement.play();
+    audioElement.play().then((err) => {console.error(err)});
     songPlayText();
   } else {
     audioElement.pause();
@@ -124,9 +123,10 @@ function playBtn() {
 }
 
 function updateProgress() {
-  let progress = (audioElement.currentTime / audioElement.duration) * 1000;
+  let progress;
+  progress = (audioElement.currentTime / audioElement.duration) * 1000;
   mainProgressBar.value = progress;
-  if (mainProgressBar.value == 1000 && loopChk.style.opacity == 1) {
+  if (mainProgressBar.value == 1000 && loopChk.style.opacity == "1") {
     mainProgressBar.value = 0;
     playBtn();
   } else if (mainProgressBar.value == 1000) nextSong();
@@ -178,10 +178,10 @@ function makePlay(e) {
 }
 
 function loopVid() {
-  if (loopChk.style.opacity == 0) {
-    loopChk.style.opacity = 1;
+  if (loopChk.style.opacity === "0") {
+    loopChk.style.opacity = "1";
   } else {
-    loopChk.style.opacity = 0;
+    loopChk.style.opacity = "0";
   }
 }
 
@@ -189,7 +189,7 @@ function loopVid() {
 const manyThings = () => {
   audioElement.src = `${songPath}${songIndex + 1}${mp3}`;
   audioElement.currentTime = 0;
-  audioElement.play();
+  audioElement.play().then((err) => (console.error(err)));
   songPlayText();
 };
 
@@ -210,11 +210,11 @@ const songPlayText = () => {
 };
 
 const gifShow = () => {
-  gif1.style.opacity = 1;
-  gif2.style.opacity = 1;
+  gif1.style.opacity = "1";
+  gif2.style.opacity = "1";
 }
 
 const gifHide = () => {
-  gif1.style.opacity = 0;
-  gif2.style.opacity = 0;
+  gif1.style.opacity = "0";
+  gif2.style.opacity = "0";
 }

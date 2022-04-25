@@ -1,36 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=Andada+Pro&family=Dancing+Script&family=Ephesis&family=Fira+Sans:wght@300&family=Noto+Sans+Mono:wght@300&family=Recursive:wght@300&display=swap");
 
-:root {
+*::before,
+*,
+*::after{
+  margin: 0;
+  padding: 0;
+  transition: var(--transition);
+}
+
+html {
   font-size: 16px;
 
   /* Variables */
-  --gradient-1: #c1c1f0fe; /* rgba(193, 193, 240, 95%)*/
-  --gradient-2: #c8d1ecfe; /* rgba(200, 209, 236, 95%)*/
-  --text-color: #d9dffc; /* rgb(217, 223, 252) */
-  --header: #e7b4b4; /* rgb(231, 180, 180) */
-  --bg-container: #00000c; /* rgb(0, 0, 12) */
-  --bg-nav: #220202; /* rgb(34, 2, 2) */
-  --bg-nav-item-hover: #3f1111; /* rgb(63, 17, 17) */
-  --song-name: #0e1079; /* rgb(14, 16, 121) */
-  --bg-song-item: #ffddbd; /* rgb(255, 221, 189) */
-  --bg-bottom: #031101; /* rgb(3, 17, 1)*/
-  --bg-btn-hover: #8b7ad5; /* rgb(139, 125, 165) */
-}
+  --gradient-1: #c1c1f0fe;
+  --gradient-2: #c8d1ecfe;
+  --bg-gradient: linear-gradient(var(--gradient-1), var(--gradient-2));
+  --bg-image: url("../../public/assets/play.gif");
 
-* {
-  margin: 0px;
-  padding: 0px;
-  transition: all 300ms ease-in-out;
+  --container-bg: url("../../public/assets/bg.jpg");
+  --transition: all 300ms 0ms ease-in-out;
+
+  --text-color: #d9dffc;
+  --nav-text: #f1f1f1;
+  --header: #e7b4b4;
+  --bg-container: #00000c;
+  --bg-nav: #220202;
+  --bg-nav-item-hover: #3f1111;
+  --song-name: #0e1079;
+  --bg-song-item: #ffddbd;
+  --bg-bottom: #031101;
+  --bg-btn-hover: #8b7ad5;
 }
 
 body {
-  background: linear-gradient(var(--gradient-1), var(--gradient-2)),
-    url("../../public/assets/play.gif");
+  background: var(--bg-gradient), var(--bg-image);
 }
 
 a {
   text-decoration: none;
   color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+li{
+  list-style: none;
+  list-style-type: none;
 }
 
 /* The Main Navigation Bar ------------------------------ */
@@ -59,11 +75,10 @@ nav {
 
 .nav-list {
   display: flex;
-  list-style-type: none;
   align-items: center;
   height: 4rem;
   background-color: var(--bg-nav);
-  color: var(--text-color);
+  color: var(--nav-text);
   justify-content: center;
 }
 
@@ -90,7 +105,7 @@ nav {
   width: 70vw;
   border-radius: 3rem;
   padding: 0.5rem;
-  background-image: url("../../public/assets/bg.jpg");
+  background-image: var(--container-bg);
 }
 
 .songsList {
@@ -118,7 +133,7 @@ nav {
 .img {
   width: 8vh;
   border-radius: 1rem;
-  margin: 0px 0.25rem;
+  margin: 0 0.25rem;
 }
 
 .img:hover {
@@ -130,7 +145,7 @@ nav {
 }
 
 .timeStamp {
-  margin: 0px 0.75rem;
+  margin: 0 0.75rem;
   display: flex;
   align-items: center;
 }
@@ -149,7 +164,7 @@ i.songItemPlay:hover {
 .Bottom {
   position: fixed;
   width: 100%;
-  bottom: 0rem;
+  bottom: 0;
   height: 15vh;
   background-color: var(--bg-bottom);
   color: var(--text-color);
@@ -172,7 +187,7 @@ i.songItemPlay:hover {
 
 .icons {
   margin: 0.5rem 0;
-  padding: 0rem 0.1rem;
+  padding: 0 2px;
   display: flex;
   color: var(--bg-song-item);
   justify-content: center;
@@ -182,7 +197,7 @@ i.songItemPlay:hover {
 
 .icons i {
   cursor: pointer;
-  padding: 0rem 0.125rem;
+  padding: 0 0.125rem;
 }
 
 .btns:hover {
@@ -205,7 +220,7 @@ i.songItemPlay:hover {
   opacity: 0;
   position: relative;
   margin-top: 0.5rem;
-  margin-left: 0.125rem;
+  margin-left: 2px;
   width: 5rem;
   display: flex;
   align-items: center;
@@ -214,7 +229,7 @@ i.songItemPlay:hover {
 #vol:hover > #volumeBar {
   opacity: 1;
   transform: scale(1);
-  transition-timing-function: 200ms;
+  transition-duration: 200ms;
   transform-origin: left;
 }
 
@@ -241,7 +256,7 @@ i.songItemPlay:hover {
 .gifs {
   position: absolute;
   opacity: 0;
-  transition: opacity 700ms ease-in-out;
+  transition: opacity 600ms ease-in-out;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -258,8 +273,8 @@ span.sPname {
   justify-content: center;
   align-items: center;
   transform: translateY(3px);
-  font-family: "Andada Pro", Tahoma, Verdana, sans-serif;
-  padding: 0rem 0.25rem;
+  font-family: "Andada Pro", sans-serif;
+  padding: 0 0.25rem;
 }
 
 /* =========================== All Media screen and Queries =========================== */
